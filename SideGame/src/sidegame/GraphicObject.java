@@ -7,6 +7,8 @@ package sidegame;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 
 /**
  *
@@ -14,24 +16,23 @@ import java.awt.Rectangle;
  */
 public class GraphicObject {
 
-    private Rectangle rec;
+    private final Rectangle2D rec;
     
-    public GraphicObject(int x, int y, int height, int width ) {
-        rec.y = y;
-        rec.x = x;
-        rec.width = width;
-        rec.height = height;
+    public GraphicObject(int x, int y, int width, int height) {
+        rec = new Rectangle(x, y, width, height);
     }
     
-    public boolean isClicked(Point point) {
-        if (rec.x <=point.x && rec.x+rec.width >= point.x && rec.y <= point.y && rec.y+rec.height >= point.y) {
-            return true;
-        }
-        else { return false;
-        
-        }
+    public boolean isWithinObject(Point2D point) {
+        return rec.contains(point);
     }
     
+    public boolean isColliding(Rectangle2D rec) {
+        return rec.intersects(rec);
+    }
+
+    public Rectangle2D getRectangle2D() {
+        return rec;
+    }
     
     
 }
