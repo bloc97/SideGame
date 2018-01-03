@@ -5,6 +5,7 @@
  */
 package sidegame;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ public class Carriage {
     private int condition;
     
     private final CarriageCargoInventory inventory;
+    private CrewMember conductor;
     
     public Carriage(int maxCondition, int maxSlots) {
         this(maxCondition, maxCondition, new CarriageCargoInventory(maxSlots));
@@ -50,6 +52,25 @@ public class Carriage {
 
     public CarriageCargoInventory getInventory() {
         return inventory;
+    }
+
+    public CrewMember getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(CrewMember conductor) {
+        this.conductor = conductor;
+    }
+    
+    public List<CrewMember> getAllCrewMembers() {
+        List<CrewMember> list = new LinkedList<>();
+        list.add(conductor);
+        for (CarriageCargo cargo : inventory.getCargoList()) {
+            if (cargo instanceof CrewMember) {
+                list.add((CrewMember) cargo);
+            }
+        }
+        return list;
     }
     
 }
