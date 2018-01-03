@@ -8,6 +8,7 @@ package sidegame;
 import displayutils.Scene;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -57,7 +58,9 @@ public class GameScene extends Scene {
             
         });
         
-        
+        for (int i=0; i<100; i++) {
+            listGraphicObj.add(new GraphicObject((int)(Math.random() * 1000), (int)(Math.random() * 1000), 20, 20));
+        }
         
     }
     
@@ -88,6 +91,11 @@ public class GameScene extends Scene {
         g.fillRect(0, 0, 50, 50);
         g.setColor(Color.red);
         g.fillRect(xPos, 80, 50, 50);
+        
+        for (GraphicObject gObject : listGraphicObj) {
+            ((Graphics2D) g).fill(gObject.getRectangle2D());
+        }
+        
     }
 
     @Override
