@@ -9,16 +9,16 @@ package sidegame;
  *
  * @author bowen
  */
-public class CaravanCargo {
+public class CarriageCargo {
     
     private final int id;
     private final String name;
     private int quantity;
 
-    public CaravanCargo(int id, String name) {
+    public CarriageCargo(int id, String name) {
         this(id, name, 0);
     }
-    public CaravanCargo(int id, String name, int quantity) {
+    public CarriageCargo(int id, String name, int quantity) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;

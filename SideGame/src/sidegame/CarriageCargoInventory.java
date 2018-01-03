@@ -13,11 +13,11 @@ import java.util.List;
  *
  * @author bowen
  */
-public class CaravanCargoInventory {
+public class CarriageCargoInventory {
     private final int maxQuantity;
-    private final List<CaravanCargo> cargoList = new LinkedList<>();
+    private final List<CarriageCargo> cargoList = new LinkedList<>();
 
-    public CaravanCargoInventory(int maxQuantity) {
+    public CarriageCargoInventory(int maxQuantity) {
         this.maxQuantity = maxQuantity;
     }
     
@@ -33,7 +33,7 @@ public class CaravanCargoInventory {
      */
     public int getCurrentQuantity() {
         int sum = 0;
-        for (CaravanCargo cargo : cargoList) {
+        for (CarriageCargo cargo : cargoList) {
             sum += cargo.getQuantity();
         }
         return sum;
@@ -45,15 +45,19 @@ public class CaravanCargoInventory {
     public int getRemainingQuantity() {
         return getMaxQuantity() - getCurrentQuantity();
     }
+
+    public List<CarriageCargo> getCargoList() {
+        return cargoList;
+    }
     
     /**
      * Adds cargo to the inventory
      * @param cargo Cargo type and quantity to add
      * @return True if successfully added cargo, False if there is not enough space.
      */
-    public boolean addCargo(CaravanCargo cargo) {
+    public boolean addCargo(CarriageCargo cargo) {
         if (cargo.getQuantity() <= getRemainingQuantity()) {
-            for (CaravanCargo cargoInList : cargoList) {
+            for (CarriageCargo cargoInList : cargoList) {
                 if (cargoInList.getCargoId() == cargo.getCargoId()) {
                     cargoInList.setQuantity(cargoInList.getQuantity() + cargo.getQuantity());
                     return true;
@@ -71,8 +75,8 @@ public class CaravanCargoInventory {
      * @param cargo Cargo type and quantity to remove
      * @return True if successfully removed cargo, False if cargo does not exist or do not have enough cargo to remove.
      */
-    public boolean removeCargo(CaravanCargo cargo) {
-        for (CaravanCargo cargoInList : cargoList) {
+    public boolean removeCargo(CarriageCargo cargo) {
+        for (CarriageCargo cargoInList : cargoList) {
             if (cargoInList.getCargoId() == cargo.getCargoId()) {
                 if (cargoInList.getQuantity() > cargo.getQuantity()) { //If there is more in cargo than what to remove
                     cargoInList.setQuantity(cargoInList.getQuantity() - cargo.getQuantity()); //Remove quantity
