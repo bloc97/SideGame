@@ -5,10 +5,20 @@
  */
 package sidegame;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author panbe
  */
 public class Crew {
+    LinkedList<CrewMember> crewList = new LinkedList<>();
+
+    public Crew() {
+    }
+    
+    public void checkCrewHunger() {
+        
+    }
     
 }
