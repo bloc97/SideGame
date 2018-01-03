@@ -14,10 +14,16 @@ public class CrewMember {
     final static int MildStarvartionDay= 5;
     final static int TrivialStarvartionDay = 3;
     
+    final static int extremeHealthIndice = 10;
+    final static int majorHealthIndice = 30;
+    final static int mildHealthIndice = 50;
+    final static int TrivialHealthIndice = 80;
+    
     private String name;
     private String occupation;
     private  int dayWithoutRation; //
      private int moral; //min 0 max 100        
+     private int health; //0-100
      private int age;
      private int goldContributionDaily;
      private int goldContributionBefore;
@@ -35,6 +41,20 @@ public class CrewMember {
             System.out.println(name+" doesnt look well and could really eat something");
         }
        else if (dayWithoutRation >= TrivialStarvartionDay) {
+            System.out.println(name+" would be happy with some food today");
+        }
+       else {
+            System.out.println(name+" just ate");
+       }
+    }
+    public void checkHealth() {
+         if (health >=MaxStavartionDay) {
+            System.out.println(name+" will not survive the night without food");
+        }
+       else if (health >= MildStarvartionDay) {
+            System.out.println(name+" doesnt look well and could really eat something");
+        }
+       else if (health >= TrivialStarvartionDay) {
             System.out.println(name+" would be happy with some food today");
         }
        else {

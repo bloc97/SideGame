@@ -21,4 +21,16 @@ public class Crew {
         
     }
     
+    public void postNight() {
+        //kill crew if passed max starvation day without food
+    }
+    
+    public void onNight() {
+        //thing to run first thing at the night start
+            //daily contribution
+        for(CrewMember crewMember: crewList) {
+            
+        }
+    }
+    
 }
