@@ -65,7 +65,7 @@ public class CaravanCargoInventory {
             return false;
         }
     }
-
+    
     /**
      * Removes cargo from the inventory
      * @param cargo Cargo type and quantity to remove

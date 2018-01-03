@@ -9,14 +9,39 @@ package sidegame;
  *
  * @author bowen
  */
-public interface CaravanCargo {
-    public int getCargoId();
-    @Deprecated
-    public String getCargoName();
+public class CaravanCargo {
     
-    public int getQuantity();
-    public void setQuantity(int amount);
+    private final int id;
+    private final String name;
+    private int quantity;
+
+    public CaravanCargo(int id, String name) {
+        this(id, name, 0);
+    }
+    public CaravanCargo(int id, String name, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+    }
     
-    public CaravanCargo getCopy();
+    
+    public int getCargoId() {
+        return id;
+    };
+    public String getCargoName() {
+        return name;
+    };
+    
+    public int getQuantity() {
+        return quantity;
+    };
+    public void setQuantity(int amount) {
+        quantity = amount;
+    };
+    
+    @Override
+    public String toString() {
+        return name + " (" + quantity + ")";
+    }
     
 }
