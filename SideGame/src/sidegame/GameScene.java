@@ -8,10 +8,11 @@ package sidegame;
 import displayutils.Scene;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.List;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.util.LinkedList;
 import javax.swing.event.MouseInputAdapter;
 
 /**
@@ -20,6 +21,7 @@ import javax.swing.event.MouseInputAdapter;
  */
 public class GameScene extends Scene {
 
+    private List<GraphicObject> listGraphicObj = new LinkedList<>();
     private boolean isBlack = false;
     private boolean inArea = false;
     
@@ -34,9 +36,9 @@ public class GameScene extends Scene {
                 isBlack = !isBlack;
                 
                 if (e.getX()>= 0 && e.getX()<= 50 && e.getY() >= 0 && e.getY() <= 50) {
-                    inArea = true;
+                    inArea = !inArea;
                 }
-    
+                
                 
             }
         });
