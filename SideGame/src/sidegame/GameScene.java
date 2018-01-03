@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.event.MouseInputAdapter;
 
 /**
@@ -20,6 +21,7 @@ import javax.swing.event.MouseInputAdapter;
 public class GameScene extends Scene {
 
     private boolean isBlack = false;
+    private boolean inArea = false;
     
     private int xPos = 30;
     
@@ -30,6 +32,12 @@ public class GameScene extends Scene {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e); //To change body of generated methods, choose Tools | Templates.
                 isBlack = !isBlack;
+                
+                if (e.getX()>= 0 && e.getX()<= 50 && e.getY() >= 0 && e.getY() <= 50) {
+                    inArea = true;
+                }
+    
+                
             }
         });
         
@@ -46,6 +54,8 @@ public class GameScene extends Scene {
             
             
         });
+        
+        
         
     }
     
@@ -69,8 +79,11 @@ public class GameScene extends Scene {
             g.setColor(Color.WHITE);
         }
         g.fillRect(0, 0, this.xsize, this.ysize);
-      //  g.setColor(Color.yellow);
-       // g.fillRect(0, 0, 50, 50);
+        g.setColor(Color.yellow);
+        if (inArea) {
+            g.setColor(Color.GREEN);
+        }
+        g.fillRect(0, 0, 50, 50);
         g.setColor(Color.red);
         g.fillRect(xPos, 80, 50, 50);
     }
