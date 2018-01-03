@@ -7,6 +7,7 @@ package sidegame;
 
 import displayutils.Scene;
 import displayutils.Viewport;
+import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
@@ -28,10 +29,11 @@ public class Main {
         
         //Build the Frame, Panel and light thread
         Viewport frame = new Viewport("SideGame", defaultW, defaultH);
-        //Scene panel = null;
-        //frame.add(panel);
+        Scene panel = new GameScene(defaultW, defaultH);
+        frame.add(panel);
         
-        //panel.setFocusable(true);
+        panel.setFocusable(true);
+        panel.start();
     }
     
 }

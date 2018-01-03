@@ -28,11 +28,8 @@ public abstract class Scene extends JPanel implements Runnable {
     
     protected Viewport viewport;
     
-    public Scene() {
-        this(60);
-    }
-    public Scene(int desiredUPS) {
-        this(desiredUPS, 0, 0);
+    public Scene(int xsize, int ysize) {
+        this(60, xsize, ysize);
     }
     
     public Scene(int desiredUPS, int xsize, int ysize) {
@@ -60,6 +57,7 @@ public abstract class Scene extends JPanel implements Runnable {
                 thisCamera.setScreenSize(w, h);
             }
         });
+        
     }
     
     
