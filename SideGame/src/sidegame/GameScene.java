@@ -8,6 +8,8 @@ package sidegame;
 import displayutils.Scene;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputAdapter;
 
@@ -19,6 +21,7 @@ public class GameScene extends Scene {
 
     private boolean isBlack = false;
     
+    private int xPos = 30;
     
     public GameScene(int xsize, int ysize) {
         super(xsize, ysize);
@@ -28,6 +31,20 @@ public class GameScene extends Scene {
                 super.mouseClicked(e); //To change body of generated methods, choose Tools | Templates.
                 isBlack = !isBlack;
             }
+        });
+        
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
+                if (e.getKeyCode() == KeyEvent.VK_D) {
+                    xPos += 10;
+                } else if (e.getKeyCode() == KeyEvent.VK_A) {
+                    xPos -= 10;
+                }
+            }
+            
+            
         });
         
     }
@@ -52,8 +69,13 @@ public class GameScene extends Scene {
             g.setColor(Color.WHITE);
         }
         g.fillRect(0, 0, this.xsize, this.ysize);
+<<<<<<< HEAD
         g.setColor(Color.yellow);
         g.fillRect(0, 0, 50, 50);
+=======
+        g.setColor(Color.red);
+        g.fillRect(xPos, 80, 50, 50);
+>>>>>>> 19b126d90b32d4a481485586a2c1158d286859d9
     }
 
     @Override
