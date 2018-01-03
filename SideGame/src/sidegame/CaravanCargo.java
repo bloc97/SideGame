@@ -10,9 +10,13 @@ package sidegame;
  * @author bowen
  */
 public interface CaravanCargo {
-    public long getCargoId();
+    public int getCargoId();
     @Deprecated
     public String getCargoName();
     
     public int getQuantity();
+    public void setQuantity(int amount);
+    
+    public CaravanCargo getCopy();
+    
 }
