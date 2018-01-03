@@ -69,13 +69,10 @@ public class GameScene extends Scene {
             g.setColor(Color.WHITE);
         }
         g.fillRect(0, 0, this.xsize, this.ysize);
-<<<<<<< HEAD
-        g.setColor(Color.yellow);
-        g.fillRect(0, 0, 50, 50);
-=======
+      //  g.setColor(Color.yellow);
+       // g.fillRect(0, 0, 50, 50);
         g.setColor(Color.red);
         g.fillRect(xPos, 80, 50, 50);
->>>>>>> 19b126d90b32d4a481485586a2c1158d286859d9
     }
 
     @Override
