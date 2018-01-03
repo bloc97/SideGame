@@ -8,11 +8,11 @@ package sidegame;
 import displayutils.Scene;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.List;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
+import java.util.List;
 import javax.swing.event.MouseInputAdapter;
 
 /**
