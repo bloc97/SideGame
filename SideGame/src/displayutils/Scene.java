@@ -5,13 +5,10 @@
  */
 package displayutils;
 
-import displayutils.Camera;
-import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.concurrent.ScheduledExecutorService;
-import javax.swing.JPanel;
 
 /**
  *
@@ -35,8 +32,8 @@ public abstract class Scene extends DisplayPanelSingleThread {
             @Override
             public void componentResized(ComponentEvent e) {
                 Rectangle r = e.getComponent().getBounds();
-                int h = r.height;
                 int w = r.width;
+                int h = r.height;
                 Scene thisScene = ((Scene)(e.getComponent()));
                 Camera thisCamera = thisScene.getCamera();
                 thisCamera.setScreenSize(w, h);

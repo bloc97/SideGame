@@ -9,7 +9,7 @@ package sidegame;
  *
  * @author panbe
  */
-public class CrewMember {
+public class CrewMember extends CarriageCargo {
     final static int MaxStavartionDay = 7;
     final static int MildStarvartionDay= 5;
     final static int TrivialStarvartionDay = 3;
@@ -33,7 +33,8 @@ public class CrewMember {
      private boolean isWomen;
      private boolean healthConditionStable;
     
-    public CrewMember() {
+    public CrewMember(int id, String name) {
+        super(id, name, 1);
     }
     
     public void checkHunger() {

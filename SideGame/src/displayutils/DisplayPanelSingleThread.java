@@ -57,9 +57,7 @@ public abstract class DisplayPanelSingleThread extends JPanel {
             updateFuture = executorService.scheduleAtFixedRate(new Runnable() {
                 @Override
                 public void run() {
-                    long currentNanos = System.nanoTime();
-                    update(new PreciseTime(currentNanos - lastTickTimeNanos, TimeUnit.NANOSECONDS));
-                    lastTickTimeNanos = currentNanos;
+                    update();
                 }
             }, TimeUnit.SECONDS.toNanos(1)/(500), TimeUnit.SECONDS.toNanos(1)/fps, TimeUnit.NANOSECONDS);
             return true;
@@ -90,14 +88,18 @@ public abstract class DisplayPanelSingleThread extends JPanel {
         return fps;
     }
     
-    public final void update(PreciseTime dt) {
+    public final void update() {
+        long currentNanos = System.nanoTime();
+        PreciseTime dt = new PreciseTime(currentNanos - lastTickTimeNanos, TimeUnit.NANOSECONDS);
+        lastTickTimeNanos = currentNanos;
+        
         //repaint();
         prePaint(dt);
         Graphics g = getGraphics();
         if (g != null) {
             onPaint(g, dt);
-            g.dispose();
             Toolkit.getDefaultToolkit().sync();
+            g.dispose();
         }
         postPaint(dt);
     }
