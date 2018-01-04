@@ -10,6 +10,8 @@ import displayutils.Viewport;
 import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  *
@@ -28,12 +30,13 @@ public class Main {
         int defaultH = height*19/20; //Show a window that is a bit shorter than full-screen
         
         //Build the Frame, Panel and light thread
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
         Viewport frame = new Viewport("SideGame", defaultW, defaultH);
-        Scene panel = new GameScene(defaultW, defaultH);
-        frame.add(panel);
+        Scene panel = new GameScene(executor);
+        frame.setScene(panel);
         
         panel.setFocusable(true);
-        panel.start();
+        panel.startRender();
     }
     
 }
