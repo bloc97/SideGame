@@ -29,7 +29,7 @@ public class Viewport extends JFrame {
     }
     public void setScene(Scene scene) {
         if (this.scene != null) {
-            this.scene.deactivate();
+            this.scene.stopRender();
             this.scene.setViewport(null);
             this.scene.setFocusable(false);
             this.remove(this.scene);
@@ -38,7 +38,7 @@ public class Viewport extends JFrame {
         this.add(scene);
         this.scene.setViewport(this);
         this.scene.setFocusable(true);
-        this.scene.activate();
+        this.scene.startRender();
     }
     
     public void toggleFullScreen() {

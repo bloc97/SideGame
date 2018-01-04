@@ -5,6 +5,7 @@
  */
 package sidegame;
 
+import displayutils.PreciseTime;
 import displayutils.Scene;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,6 +15,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ScheduledExecutorService;
 import javax.swing.event.MouseInputAdapter;
 
 /**
@@ -28,8 +30,8 @@ public class GameScene extends Scene {
     
     private int xPos = 30;
     
-    public GameScene(int xsize, int ysize) {
-        super(xsize, ysize);
+    public GameScene(ScheduledExecutorService executorService) {
+        super(executorService, 60);
         this.addMouseListener(new MouseInputAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -52,6 +54,8 @@ public class GameScene extends Scene {
                     xPos += 10;
                 } else if (e.getKeyCode() == KeyEvent.VK_A) {
                     xPos -= 10;
+                } else if (e.getKeyCode() == KeyEvent.VK_F11) {
+                    viewport.toggleFullScreen();
                 }
             }
             
@@ -64,26 +68,20 @@ public class GameScene extends Scene {
         
     }
     
-    
 
     @Override
-    protected void beforePaint() {
+    public void prePaint(PreciseTime dt) {
         
     }
 
     @Override
-    protected void prePaint() {
-        
-    }
-
-    @Override
-    protected void onPaint(Graphics g) {
+    public void onPaint(Graphics g, PreciseTime dt) {
         if (isBlack) {
             g.setColor(Color.BLACK);
         } else {
             g.setColor(Color.WHITE);
         }
-        g.fillRect(0, 0, this.xsize, this.ysize);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.yellow);
         if (inArea) {
             g.setColor(Color.GREEN);
@@ -95,16 +93,10 @@ public class GameScene extends Scene {
         for (GraphicObject gObject : listGraphicObj) {
             ((Graphics2D) g).fill(gObject.getRectangle2D());
         }
-        
     }
 
     @Override
-    protected void postPaint() {
-        
-    }
-
-    @Override
-    protected void afterPaint() {
+    public void postPaint(PreciseTime dt) {
         
     }
     
