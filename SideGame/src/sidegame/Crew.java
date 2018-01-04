@@ -33,4 +33,14 @@ public class Crew {
         }
     }
     
+    public void preNight() {
+        //the result of the task ask to be done during the day should be compute here
+        
+    }
+    
+    public void dailyGroupReport() {
+        //call fonction for daily contribution
+        //call fonction for moral influence
+    }
+    
 }

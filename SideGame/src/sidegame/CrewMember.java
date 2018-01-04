@@ -17,18 +17,21 @@ public class CrewMember {
     final static int extremeHealthIndice = 10;
     final static int majorHealthIndice = 30;
     final static int mildHealthIndice = 50;
-    final static int TrivialHealthIndice = 80;
+    final static int trivialHealthIndice = 80;
+    final static int maxHealth = 100;
     
     private String name;
     private String occupation;
     private  int dayWithoutRation; //
      private int moral; //min 0 max 100        
-     private int health; //0-100
+     private int health; //0-100 //recovery with rest or doctor care
      private int age;
      private int goldContributionDaily;
      private int goldContributionBefore;
      private int goldContributionAfter;
+     private int goodCompanionIndice; //passively improve or diminush moral
      private boolean isWomen;
+     private boolean healthConditionStable;
     
     public CrewMember() {
     }
@@ -47,19 +50,33 @@ public class CrewMember {
             System.out.println(name+" just ate");
        }
     }
-    public void checkHealth() {
-         if (health >=MaxStavartionDay) {
-            System.out.println(name+" will not survive the night without food");
+    public void checkHealth() { ///to be finished
+         if (health <=extremeHealthIndice) {
+            System.out.println(name+" ");
         }
-       else if (health >= MildStarvartionDay) {
+       else if (health <= majorHealthIndice) {
             System.out.println(name+" doesnt look well and could really eat something");
         }
-       else if (health >= TrivialStarvartionDay) {
+       else if (health <= mildHealthIndice) {
             System.out.println(name+" would be happy with some food today");
         }
-       else {
+       else if (health <= trivialHealthIndice) {
             System.out.println(name+" just ate");
        }
+       else {
+           
+       }
+    }
+    public void checkHealthIsStable() {
+        if (healthConditionStable && health == maxHealth) {
+            System.out.println("Appair to be in perfect health condition");
+        }
+        else if (healthConditionStable && health != maxHealth) {
+            System.out.println(" Appair to be injured, but is recovering");
+        }
+        else if (!healthConditionStable) {
+            System.out.println(" is injured and condition degrating");
+        }
     }
     
     public int applyDailyContrib() {
