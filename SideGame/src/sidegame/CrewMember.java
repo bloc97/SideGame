@@ -155,6 +155,30 @@ public class CrewMember extends CarriageCargo {
     public void setIsWomen(boolean isWomen) {
         this.isWomen = isWomen;
     }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getGoodCompanionIndice() {
+        return goodCompanionIndice;
+    }
+
+    public void setGoodCompanionIndice(int goodCompanionIndice) {
+        this.goodCompanionIndice = goodCompanionIndice;
+    }
+
+    public boolean isHealthConditionStable() {
+        return healthConditionStable;
+    }
+
+    public void setHealthConditionStable(boolean healthConditionStable) {
+        this.healthConditionStable = healthConditionStable;
+    }
     
     
     
