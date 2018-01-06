@@ -14,6 +14,8 @@ import sidegame.CrewMember;
  */
 public class MedicAbility implements Ability {
     
+    public static int abilityMedicHealingValue = 20;
+    
     @Override
     public String name() {
         return "Medic";
@@ -30,7 +32,7 @@ public class MedicAbility implements Ability {
     
     @Override
     public void activeAbility(CrewMember crewMember) {
-      crewMember.setHealth(crewMember.getHealth()+Const.abilityMedicHealingValue);
+      crewMember.setHealth(crewMember.getHealth() + abilityMedicHealingValue);
       crewMember.setHealthConditionStable(true);
     }
 
