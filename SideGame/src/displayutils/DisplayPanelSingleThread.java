@@ -102,6 +102,7 @@ public abstract class DisplayPanelSingleThread extends JPanel {
             g.dispose();
         }
         postPaint(dt);
+        Toolkit.getDefaultToolkit().sync();
     }
     
     public abstract void prePaint(PreciseTime dt);

@@ -92,6 +92,11 @@ public class GameScene extends Scene {
         
         for (GraphicObject gObject : listGraphicObj) {
             ((Graphics2D) g).fill(gObject.getRectangle2D());
+            double xPos = gObject.getRectangle2D().getX() + (Math.random() * 30 - 15);
+            double yPos = gObject.getRectangle2D().getY() + (Math.random() * 30 - 15);
+            xPos = (xPos + 1000) % 1000;
+            yPos = (yPos + 1000) % 1000;
+            gObject.getRectangle2D().setRect(xPos, yPos, 20, 20);
         }
     }
 
