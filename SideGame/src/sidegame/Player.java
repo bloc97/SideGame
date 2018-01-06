@@ -10,5 +10,31 @@ package sidegame;
  * @author bowen
  */
 public class Player {
+
+    private int gold;
+    private String name;
+    
+    public Player() {
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
+    
+    
     
 }

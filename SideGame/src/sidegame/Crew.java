@@ -25,11 +25,13 @@ public class Crew {
         //kill crew if passed max starvation day without food
     }
     
-    public void onNight() {
+    public void onNight(Player player) {
         //thing to run first thing at the night start
             //daily contribution
         for(CrewMember crewMember: crewList) {
-            
+            // only one for should be used for maximal performance, 
+                //dailyGroupeReport() should be here
+                dailyReport(player, crewMember);
         }
     }
     
@@ -38,9 +40,14 @@ public class Crew {
         
     }
     
-    public void dailyGroupReport() {
+    public void dailyReport(Player player, CrewMember crewMember) { //TAKE ONE CREWMEMBER IS TO BE USED IN A FOR LOOP
         //call fonction for daily contribution
+        dailyContribution(player, crewMember);
         //call fonction for moral influence
+    }
+    
+    public void dailyContribution(Player player,CrewMember crewMember) {
+      player.setGold(player.getGold() +  crewMember.getGoldContributionDaily()); 
     }
     
 }
