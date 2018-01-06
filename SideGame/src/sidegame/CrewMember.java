@@ -5,6 +5,10 @@
  */
 package sidegame;
 
+import java.util.LinkedList;
+import java.util.List;
+import sidegame.abilities.Ability;
+
 /**
  *
  * @author panbe
@@ -19,6 +23,8 @@ public class CrewMember extends CarriageCargo {
     final static int mildHealthIndice = 50;
     final static int trivialHealthIndice = 80;
     final static int maxHealth = 100;
+    
+    private final List<Ability> abilities = new LinkedList<>();
     
     private String name;
     private String occupation;
@@ -180,6 +186,12 @@ public class CrewMember extends CarriageCargo {
         this.healthConditionStable = healthConditionStable;
     }
     
-    
+    public boolean addAbility(Ability ability) {
+        if (!abilities.contains(ability)) {
+            abilities.add(ability);
+            return true;
+        }
+        return false;
+    }
     
 }

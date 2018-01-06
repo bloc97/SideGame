@@ -10,5 +10,5 @@ package sidegame;
  * @author panbe
  */
 public class Const {
-     static int abilityMedicHealingValue = 20;
+    public static int abilityMedicHealingValue = 20;
 }

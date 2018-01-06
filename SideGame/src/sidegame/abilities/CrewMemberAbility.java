@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sidegame;
+package sidegame.abilities;
+
+import sidegame.Const;
+import sidegame.CrewMember;
 
 /**
  *
